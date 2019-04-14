@@ -18,7 +18,7 @@ public class CLITest {
     }
 
     @Test
-    public void should_evaluate_simple_addition_postfix() {
+    public void should_evaluate_simple_addition() {
         assertThat(evaluate("17 5 +")).isEqualTo(22);
     }
 
@@ -28,13 +28,48 @@ public class CLITest {
     }
 
     @Test
-    public void should_evaluate_simple_substraction_post() {
+    public void should_evaluate_simple_substraction() {
         assertThat(evaluate("2 1 -")).isEqualTo(1);
     }
 
     @Test
     public void should_evaluate_more_complex_substraction() {
-        assertThat(evaluate("5 3 2 * +")).isEqualTo(11);
+        assertThat(evaluate("17 5 2 - -")).isEqualTo(14);
+    }
+
+    @Test
+    public void should_evaluate_simple_multiplication() {
+        assertThat(evaluate("5 5 *")).isEqualTo(25);
+    }
+
+    @Test
+    public void should_evaluate_more_complex_multiplication() {
+        assertThat(evaluate("5 5 5 * *")).isEqualTo(125);
+    }
+
+    @Test
+    public void should_evaluate_simple_division() {
+        assertThat(evaluate("10 2 /")).isEqualTo(5);
+    }
+
+    @Test
+    public void should_evaluate_more_complex_division() {
+        assertThat(evaluate("2 9 3 /")).isEqualTo(3);
+    }
+
+    @Test
+    public void should_evaluate_simple_floating_number() {
+        assertThat(evaluate("2.5 2.5 +")).isEqualTo(5);
+    }
+
+    @Test
+    public void should_evaluate_more_complex_floating_number() {
+        assertThat(evaluate("2.5 2 +")).isEqualTo(4.5f);
+    }
+
+    @Test
+    public void should_evaluate_more_complex_floating_number_2() {
+        assertThat(evaluate("2.5 2.5 *")).isEqualTo(6.25f);
     }
 
     @Test public void should_evaluate_very_complex_calcul() {

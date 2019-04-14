@@ -1,6 +1,5 @@
 package rpn;
 
-import java.util.Stack;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -9,11 +8,11 @@ public class CLI {
         String expression = Stream.of(args).collect(Collectors.joining(" "));
 
         System.out.println("About to evaluate '" + expression + "'");
-        long result = evaluate(expression);
+        Float result = evaluate(expression);
         System.out.println("> " + result);
     }
 
-    static long evaluate(String expression) {
+    static Float evaluate(String expression) {
         Calculatrice calc = new Calculatrice();
 
         String[] cleanExpression = expression.trim().split( "\\s+"); // Supprime les espaces et convertir en array
