@@ -1,5 +1,6 @@
 package rpn;
 
+import java.util.Stack;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,6 +14,10 @@ public class CLI {
     }
 
     static long evaluate(String expression) {
-        return 0;
+        Calculatrice calc = new Calculatrice();
+
+        String[] cleanExpression = expression.trim().split( "\\s+"); // Supprime les espaces et convertir en array
+
+        return calc.makeCalcul(cleanExpression);
     }
 }
