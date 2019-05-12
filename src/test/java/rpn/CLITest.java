@@ -20,6 +20,12 @@ public class CLITest {
     }
 
     @Test
+    public void should_evaluate_division_by_zero() {
+        thrown.expect(IllegalArgumentException.class);
+        evaluate("0 0 /");
+    }
+
+    @Test
     public void should_evaluate_single_digit_constant() {
         assertThat(evaluate("5")).isEqualTo(5);
     }
