@@ -27,7 +27,7 @@ class Addition extends Operator {
 
     @Override
     Operande calc() {
-        Float result = this.getOperande1().getValue() + this.getOperande2().getValue();
+        Float result = this.getOperande1().getResult() + this.getOperande2().getResult();
         return new Operande(result);
     }
 }
@@ -39,8 +39,7 @@ class Soustraction extends Operator {
 
     @Override
     Operande calc() {
-
-        return new Operande(this.getOperande2().getValue() - this.getOperande1().getValue());
+        return new Operande(this.getOperande2().getResult() - this.getOperande1().getResult());
     }
 }
 
@@ -51,8 +50,7 @@ class Division extends Operator {
 
     @Override
     Operande calc() {
-
-        return new Operande(this.getOperande2().getValue() / this.getOperande1().getValue());
+        return new Operande(this.getOperande2().getResult() / this.getOperande1().getResult());
     }
 }
 
@@ -63,7 +61,6 @@ class Multiplication extends Operator {
 
     @Override
     Operande calc() {
-
-        return new Operande(this.getOperande1().getValue() * this.getOperande2().getValue());
+        return new Operande(this.getOperande1().getResult() * this.getOperande2().getResult());
     }
 }

@@ -3,11 +3,15 @@ package rpn;
 public class Operande {
     private Float value;
 
-    public Operande(Float value) {
+    Operande(Float value) {
         this.value = value;
     }
 
-    public Float getValue() {
+    private Float getValue() {
         return value;
+    }
+
+    public Float getResult() {
+        return this.getValue();
     }
 }

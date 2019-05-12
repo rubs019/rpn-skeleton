@@ -30,6 +30,6 @@ public class Calculatrice {
             stack.push(new Operande(Float.parseFloat(expression)));
         }
 
-        return stack.pop().getValue();
+        return stack.pop().getResult();
     }
 }
