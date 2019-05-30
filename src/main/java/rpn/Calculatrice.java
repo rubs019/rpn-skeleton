@@ -1,14 +1,16 @@
 package rpn;
 
+import rpn.operators.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class Calculatrice {
+class Calculatrice {
     private Stack<Float> stack = new Stack<>();
     private Map<String, Operator> commands = new HashMap<>();
 
-    public Float makeCalcul(String[] expressions) {
+    Float makeCalcul(String[] expressions) {
 
         commands.put("+", new Addition());
         commands.put("-", new Soustraction());
