@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Stack;
 
 public class Calculatrice {
-    private Stack<Operande> stack = new Stack<>();
+    private Stack<Float> stack = new Stack<>();
     private Map<String, Operator> commands = new HashMap<>();
 
     public Float makeCalcul(String[] expressions) {
@@ -22,9 +22,9 @@ public class Calculatrice {
                 continue;
             }
 
-            stack.push(new Operande(Float.parseFloat(expression)));
+            stack.push(Float.parseFloat(expression));
         }
 
-        return stack.pop().getResult();
+        return stack.pop();
     }
 }
