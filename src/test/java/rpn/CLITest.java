@@ -1,11 +1,29 @@
 package rpn;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static rpn.CLI.evaluate;
 
 public class CLITest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    public void throwsExceptionWhenCmdIsEmpty() {
+        thrown.expect(IllegalArgumentException.class);
+        evaluate("");
+    }
+
+    @Test
+    public void should_evaluate_division_by_zero() {
+        thrown.expect(IllegalArgumentException.class);
+        evaluate("0 0 /");
+    }
 
     @Test
     public void should_evaluate_single_digit_constant() {
