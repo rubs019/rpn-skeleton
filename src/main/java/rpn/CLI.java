@@ -1,22 +1,21 @@
 package rpn;
 
+import rpn.bus.InMemoryBus;
+import rpn.consumer.TokenizerConsumer;
+import rpn.message.ExpressionMessage;
+
+import java.util.UUID;
+
 public class CLI {
     public static void main(String[] args) {
-        String expression = String.join(" ", args);
+        InMemoryBus bus = new InMemoryBus();
 
-        Float result = evaluate(expression);
-        System.out.println("> " + result);
-    }
 
-    static Float evaluate(String expression) {
-        if (expression.isEmpty()) { throw new IllegalArgumentException("You must pass some arguments"); }
 
-        Calculatrice calc = new Calculatrice();
+        bus.subscribe(ExpressionMessage.MESSAGE_TYPE, new TokenizerConsumer(bus));
 
-        System.out.println("About to evaluate '" + expression + "'");
 
-        String[] cleanExpression = expression.trim().split( "\\s+"); // Supprime les espaces et convertir en array
-
-        return calc.makeCalcul(cleanExpression);
+        String expressionId = UUID.randomUUID().toString();
+        bus.publish(new ExpressionMessage("1 2 +", expressionId));
     }
 }
