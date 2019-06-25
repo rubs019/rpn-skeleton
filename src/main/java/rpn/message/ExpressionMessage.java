@@ -1,7 +1,7 @@
 package rpn.message;
 
 public class ExpressionMessage implements Message {
-    public static final String MESSAGE_TYPE = "expression";
+    private static final String MESSAGE_TYPE = "expression";
     private final String expression;
     private final String expressionId;
 
