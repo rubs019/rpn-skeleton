@@ -13,7 +13,7 @@ import java.util.Stack;
 
 public class RPNCalculator implements Consumer {
     private Bus bus;
-    private Stack<Float> stack = new Stack<>();
+    private Stack<Double> stack = new Stack<>();
     private Map<String, Operator> commands = new HashMap<>();
 
     public RPNCalculator(Bus bus) {
@@ -31,13 +31,13 @@ public class RPNCalculator implements Consumer {
         }
     }
 
-    public void receive(Message message, Stack<Float> stack) {
+    public void receive(Message message, Stack<Double> stack) {
         if (message.messageType().equals(ResultMessage.MESSAGE_TYPE)) {
             this.stack = stack;
         }
     }
 
-    public Stack<Float> getStack() {
+    public Stack<Double> getStack() {
         return stack;
     }
 }

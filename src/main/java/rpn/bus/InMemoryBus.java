@@ -20,23 +20,18 @@ public class InMemoryBus implements Bus {
 
     @Override
     public void subscribe(String messageType, Consumer consumer) {
-        List<Consumer> consumers = consumersByType.get(messageType);
-        if(consumers == null) {
-            consumers = new ArrayList<>();
-            consumersByType.put(messageType, consumers);
-        }
+        subscriber(messageType, consumer);
+    }
+
+    private void subscriber(String messageType, Consumer consumer) {
+        List<Consumer> consumers = consumersByType.computeIfAbsent(messageType, k -> new ArrayList<>());
         consumers.add(consumer);
     }
 
     @Override
     public void subscribeAll(ArrayList<String> messagesTypes, Consumer consumer) {
         messagesTypes.forEach(messageType -> {
-            List<Consumer> consumers = consumersByType.get(messageType);
-            if(consumers == null) {
-                consumers = new ArrayList<>();
-                consumersByType.put(messageType, consumers);
-            }
-            consumers.add(consumer);
+            subscriber(messageType, consumer);
         });
     }
 }
