@@ -47,10 +47,6 @@ public class RPNCalculator implements Consumer {
             EndOfToken endOfToken = (EndOfToken) message;
             bus.publish(new ResultMessage(stack, endOfToken.getExpressionId()));
         }
-
-        if (message.messageType().equals(ResultMessage.MESSAGE_TYPE)) {
-            this.stack = stack;
-        }
     }
 
     public Float result() {

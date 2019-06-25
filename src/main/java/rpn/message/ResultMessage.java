@@ -3,7 +3,7 @@ package rpn.message;
 import java.util.Stack;
 
 public class ResultMessage implements Message {
-    public static final String MESSAGE_TYPE = "resultMessage";
+    public static final String MESSAGE_TYPE = "result";
 
     private final Stack<Float> result;
     private final String expressionId;

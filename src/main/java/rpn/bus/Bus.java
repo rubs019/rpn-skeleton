@@ -4,7 +4,6 @@ import rpn.consumer.Consumer;
 import rpn.message.Message;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public interface Bus {
     void publish(Message message);
