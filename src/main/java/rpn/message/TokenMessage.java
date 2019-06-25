@@ -11,6 +11,14 @@ public class TokenMessage implements Message {
         this.expressionId = expressionId;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public String getExpressionId() {
+        return expressionId;
+    }
+
     @Override
     public String messageType() {
         return MESSAGE_TYPE;
